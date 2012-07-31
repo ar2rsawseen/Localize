@@ -1,0 +1,20 @@
+<project>
+ <properties autorotation="0" fps="60" scaleMode="0" iosDevice="0" xcodeVersion="0" packageName="com.yourdomain.yourapp" logicalHeight="480" logicalWidth="320" retinaDisplay="0" assetsOnly="0" orientation="0" architecture="0">
+  <imageScales/>
+ </properties>
+ <folder name="locales">
+  <file source="locale/ru_RU.lua"/>
+  <file source="locale/lv_LV.lua"/>
+ </folder>
+ <folder name="classes">
+  <file source="classes/TextWrap.lua"/>
+ </folder>
+ <folder name="images">
+  <file source="images/start_ru.png"/>
+  <file source="images/start_lv.png"/>
+  <file source="images/start_en.png"/>
+ </folder>
+ <file source="Localize.lua"/>
+ <file source="main.lua"/>
+ <file source="tahoma.ttf"/>
+</project>
