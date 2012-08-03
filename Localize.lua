@@ -27,10 +27,14 @@ local data = {}
 --initialziation
 if filetype == "lua" then
 	file = loadfile(path.."/"..locale.."."..filetype)
-	data = assert(file)()
+	if file then
+		data = assert(file)()
+	end
 elseif filetype == "json" then
 	file = io.open(path.."/"..locale.."."..filetype, "r")
-	data = Json.Decode(file:read( "*a" ))
+	if file then
+		data = Json.Decode(file:read( "*a" ))
+	end
 end
 
 --public method for overriding methods

@@ -4,7 +4,6 @@
  </properties>
  <folder name="locales">
   <file source="locale/ru_RU.lua"/>
-  <file source="locale/lv_LV.lua"/>
  </folder>
  <folder name="classes">
   <file source="classes/TextWrap.lua"/>
