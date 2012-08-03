@@ -3,6 +3,7 @@
   <imageScales/>
  </properties>
  <folder name="locales">
+  <file source="locale/lv_LV.lua"/>
   <file source="locale/ru_RU.lua"/>
  </folder>
  <folder name="classes">
