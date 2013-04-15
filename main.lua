@@ -35,7 +35,7 @@ Localize.load(TextWrap, "new", 1)
 
 
 --all the rest is the default simple app
-local font = TTFont.new("tahoma.ttf", 15)
+local font = TTFont.new("tahoma.ttf", 15, true)
 
 --We can use simple text
 local text = TextField.new(font, "This is a simple string")
@@ -53,6 +53,8 @@ local text = TextWrap.new("Multi - line string\nFor TextWrap object", applicatio
 text:setFont(font)
 text:setPosition(0,100)
 stage:addChild(text)
+
+AlertDialog.new("This is a simple string", "This is a simple string", "Cancel"):show()
 
 --Same way we can use multiple language images
 local button = Bitmap.new(Texture.new("images/start_en.png"))

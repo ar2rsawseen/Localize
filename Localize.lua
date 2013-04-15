@@ -38,11 +38,19 @@ elseif filetype == "json" then
 end
 
 --public method for overriding methods
-function load(object, func, index)
+function load(object, func, indeces)
 	if object ~= nil and object[func] ~= nil and object.__LCfunc == nil then
 		object.__LCfunc = object[func]
 		object[func] = function(...)
-			arg[index] = data[arg[index]] or arg[index]
+			local index
+			if type(indeces) == "table" then
+				for i = 1, #indeces do
+					local index = indeces[i]
+					arg[index] = data[arg[index]] or arg[index]
+				end
+			else
+				arg[indeces] = data[arg[indeces]] or arg[indeces]
+			end
 			return object.__LCfunc(unpack(arg))
 		end
 	end
@@ -50,5 +58,7 @@ end
 
 --overriding native objects
 load(string, "format", 1)
-load(TextField, "new", 2)
-load(Texture, "new", 1)
+load(TextField, "__new", 2)
+load(Texture, "__new", 1)
+load(AlertDialog, "__new", {1, 2, 3, 4, 5})
+load(TextInputDialog, "__new", {1, 2, 3, 4, 5, 6})
