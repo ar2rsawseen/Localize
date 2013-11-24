@@ -20,21 +20,28 @@ path = "locales"
 filetype = "lua"
 
 --local properties
-local locale = application:getLocale()
+local locale
 local file
 local data = {}
 
---initialziation
-if filetype == "lua" then
-	file = loadfile(path.."/"..locale.."."..filetype)
-	if file then
-		data = assert(file)()
+function reset()
+	--initialziation
+	if filetype == "lua" then
+		file = loadfile(path.."/"..locale.."."..filetype)
+		if file then
+			data = assert(file)()
+		end
+	elseif filetype == "json" then
+		file = io.open(path.."/"..locale.."."..filetype, "r")
+		if file then
+			data = Json.Decode(file:read( "*a" ))
+		end
 	end
-elseif filetype == "json" then
-	file = io.open(path.."/"..locale.."."..filetype, "r")
-	if file then
-		data = Json.Decode(file:read( "*a" ))
-	end
+end
+
+function changeLocale(l)
+	locale = l
+	reset()
 end
 
 --public method for overriding methods
@@ -55,6 +62,8 @@ function load(object, func, indeces)
 		end
 	end
 end
+
+changeLocale(application:getLocale())
 
 --overriding native objects
 load(string, "format", 1)
