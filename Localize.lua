@@ -25,6 +25,7 @@ local file
 local data = {}
 
 function reset()
+	data = {}
 	--initialziation
 	if filetype == "lua" then
 		file = loadfile(path.."/"..locale.."."..filetype)

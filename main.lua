@@ -23,6 +23,7 @@
 --we can set up some settings through public properties (optional)
 Localize.path = "locales"
 Localize.filetype = "lua"
+Localize.changeLocale("ru_RU")
 
 --overriding methods for non-native objects 
 --(optional, if using non native objects)
