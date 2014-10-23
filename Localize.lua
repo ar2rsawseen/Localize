@@ -67,7 +67,7 @@ end
 changeLocale(application:getLocale())
 
 --overriding native objects
-load(string, "format", 1)
+load(string, "format", {1,2})
 load(TextField, "__new", 2)
 load(Texture, "__new", 1)
 load(AlertDialog, "__new", {1, 2, 3, 4, 5})
